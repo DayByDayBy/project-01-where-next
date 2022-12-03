@@ -17,9 +17,4 @@ import repositories.user_repository as user_repository
 
 
 
-
-
-
-
-
 pdb.set_trace()

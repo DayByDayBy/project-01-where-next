@@ -4,9 +4,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/where-next.css') }}">
-    <title>Document</title>
-</head>
+    <title>Where Next?</title>
 <body>
-    
+<main class="flex flex--row">
+<header>
+    <h1>
+        <div id = title>
+            WHERE NEXT, {{user}}?
+        </div>
+    </h1>
+</header>
+
+  <nav>
+    <ul>
+      <li>
+        <a href="/">Locations</a>
+      </li>
+      <li>
+        <a href="/add-a-city">Users</a>
+      </li>
+      <li>
+        <a href="/edit">Users</a>
+      </li>
+      <li>
+        <a href="/cities-to-visit">Users</a>
+      </li>
+      <li>
+        <a href="/cities-visited">Visits</a>
+      </li>
+    </ul>
+  </nav>
+
+
+
+  <section id="content">
+      {% block content %}
+
+      {% endblock%}
+  </section>
+  </main>
 </body>
 </html>

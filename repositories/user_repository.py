@@ -34,7 +34,7 @@ def select(id):
 def cities_to_visit(user):
     wishlist = []
 
-    sql = PLACEHOLDER PLACEHOLDER  ****
+    sql = PLACEHOLDER PLACEHOLDER PLACEHOLDER PLACEHOLDER  ****
     values = [user.id]
     results = run_sql(sql, values)
 
@@ -47,7 +47,7 @@ def cities_to_visit(user):
 def cities_visited(user):
     ticklist = []
 
-    sql = PLACEHOLDER PLACEHOLDER  *******
+    sql = PLACEHOLDER PLACEHOLDER PLACEHOLDER PLACEHOLDER  *******
     values = [user.id]
     results = run_sql(sql, values)
 
