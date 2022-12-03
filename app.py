@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 
 from controllers.city_controller import *
 from controllers.country_controller import *
