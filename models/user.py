@@ -3,6 +3,10 @@ class User:
       self.name = name
       self.langauges = languages
       self.id = id
+      self.cities_to_visit = []
+      self.cities_visited = []
+
+
 
 
  
