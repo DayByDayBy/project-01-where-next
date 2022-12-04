@@ -36,9 +36,9 @@ def show_city(id):
 @cities_blueprint.route('/cities/have-been')
 def visited_cities():
     cities = city_repository.see_visited()
-    return render_template("cities/seen.html", all_cities = cities)
+    return render_template("cities/have-been.html", all_cities = cities)
     
-@cities_blueprint.route('/cities/')
+@cities_blueprint.route('/cities/have-not-been')
 def cities_to_visit():
     cities = city_repository.see_to_visit()
     return render_template("cities/have-not-been.html", all_cities = cities)

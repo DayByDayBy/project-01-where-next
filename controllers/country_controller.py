@@ -18,7 +18,7 @@ def add_country():
     return render_template("countries/add.html", all_countries = countries)
 
 @countries_blueprint.route("/countries",  methods=['POST'])
-def create_country():
+def add_country():
     name    = request.form['name']
     country_id  = country_repository.select(request.form['country_id'])
     visited   = request.form['visited']
