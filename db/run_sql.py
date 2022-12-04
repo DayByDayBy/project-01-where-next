@@ -4,9 +4,9 @@ import psycopg2.extras as ext
 def run_sql(sql, values = None):
     conn = None
     results = []
-
+    
     try:
-        conn=psycopg2.connect("dbname=''")
+        conn=psycopg2.connect("dbname='where_next'")
         cur = conn.cursor(cursor_factory=ext.DictCursor)
         cur.execute(sql, values)
         conn.commit()

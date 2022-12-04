@@ -1,7 +1,10 @@
 from db.run_sql import run_sql
 
 from models.city import City
+from models.country import Country
 from models.user import User
+from repositories import city_repository
+
 
 def save(user):
     sql = "INSERT INTO users( name ) VALUES ( %s ) RETURNING id"
@@ -15,7 +18,7 @@ def select_all():
     sql = "SELECT * FROM users"
     results = run_sql(sql)
     for row in results:
-        user = User(row['name'], row['languages'], row['id'])
+        user = User(row['name'], row['id'])
         users.append(user)
     return users
 
@@ -31,31 +34,32 @@ def select(id):
     return user
 
 
-def cities_to_visit(user):
-    wishlist = []
-
-    sql = PLACEHOLDER PLACEHOLDER PLACEHOLDER PLACEHOLDER  ****
-    values = [user.id]
-    results = run_sql(sql, values)
-
-    for row in results:
-        cities_to_visit = City(row['name'], row['languages'], row['country_id'], row['id'])
-        wishlist.append(cities_to_visit)
-
-    return wishlist
-
 def cities_visited(user):
     ticklist = []
 
-    sql = PLACEHOLDER PLACEHOLDER PLACEHOLDER PLACEHOLDER  *******
-    values = [user.id]
+    sql = "SELECT * FROM cities WHERE visited = %s"
+    values = [True]
     results = run_sql(sql, values)
-
     for row in results:
         cities_visited = City(row['name'], row['languages'], row['country_id'], row['id'])
         ticklist.append(cities_visited)
 
     return ticklist
+
+
+def cities_to_visit(user):
+    wishlist = []
+
+    sql = "SELECT * FROM cities WHERE visited = %s"
+    values = [False]
+    results = run_sql(sql, values)
+    for row in results:
+        cities_visited = City(row['name'], row['languages'], row['country_id'], row['id'])
+        wishlist.append(cities_visited)
+
+    return wishlist
+
+
 
 
 def delete_all():
