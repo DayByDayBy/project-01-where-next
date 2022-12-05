@@ -16,5 +16,20 @@ def home():
     user = user_repository.select_all()[0]
     return render_template('index.html', user = user)
 
+@app.route('/users')
+def users():
+    user = user_repository.select_all()[0]
+    return render_template('users/ndex.html', user = user)
+
+@app.route('/cities')
+def cities():
+    user = user_repository.select_all()[0]
+    return render_template('cities/index.html', user = user)
+
+@app.route('/countries')
+def countries():
+    user = user_repository.select_all()[0]
+    return render_template('countries/index.html', user = user)
+
 if __name__ == '__main__':
     app.run(debug=True)

@@ -9,10 +9,8 @@ import repositories.user_repository as user_repository
 
 user_repository.delete_all()
 
-user1 = User("Richard Burton","eng")
+user1 = User("James","eng")
 user_repository.save(user1)
-user2 = User("James Boag", "eng")
-user_repository.save(user2)
 
 user_repository.select_all()
 

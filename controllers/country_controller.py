@@ -17,7 +17,7 @@ def all_countries():
 #     countries = country_repository.select_all()
 #     return render_template("countries/add.html", all_countries = countries)
 
-@countries_blueprint.route("/countries",  methods=['POST'])
+@countries_blueprint.route("/countries/add.html",  methods=['POST'])
 def add_country():
     name    = request.form['name']
     country_id  = country_repository.select(request.form['country_id'])
@@ -37,7 +37,7 @@ def visited_countries():
     countries = country_repository.see_visited()
     return render_template("countries/seen.html", all_countries = countries)
     
-@countries_blueprint.route('/countries/')
+@countries_blueprint.route('/countries/have-not-been')
 def countries_to_visit():
     countries = country_repository.see_to_visit()
     return render_template("countries/have-not-been.html", all_countries = countries)

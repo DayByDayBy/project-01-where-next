@@ -34,28 +34,28 @@ def select(id):
     return user
 
 
-def cities_visited(user):
+def cities_visited():
     ticklist = []
 
     sql = "SELECT * FROM cities WHERE visited = %s"
     values = [True]
     results = run_sql(sql, values)
     for row in results:
-        cities_visited = City(row['name'], row['language'], row['country_id'], row['id'])
+        cities_visited = City(row['name'], row['country'], row['id'])
         ticklist.append(cities_visited)
 
     return ticklist
 
 
-def cities_to_visit(user):
+def cities_to_visit():
     wishlist = []
 
     sql = "SELECT * FROM cities WHERE visited = %s"
     values = [False]
     results = run_sql(sql, values)
     for row in results:
-        cities_visited = City(row['name'], row['language'], row['country_id'], row['id'])
-        wishlist.append(cities_visited)
+        cities_to_visit = City(row['name'], row['country'], row['id'])
+        wishlist.append(cities_to_visit)
 
     return wishlist
 

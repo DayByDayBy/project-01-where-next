@@ -5,6 +5,7 @@ from models.city import City
 
 import repositories.city_repository as city_repository
 import repositories.country_repository as country_repository
+import repositories.user_repository as user_repository
 
 cities_blueprint = Blueprint("cities", __name__)
 
@@ -34,14 +35,14 @@ def show_city(id):
 
 
 @cities_blueprint.route('/cities/have-been')
-def visited_cities():
-    cities = city_repository.see_visited()
-    return render_template("cities/have-been.html", all_cities = cities)
+def visited():
+    cities = user_repository.cities_visited()
+    return render_template("cities/have-been.html", all_cities=cities)
     
 @cities_blueprint.route('/cities/have-not-been')
-def cities_to_visit():
-    cities = city_repository.see_to_visit()
-    return render_template("cities/have-not-been.html", all_cities = cities)
+def to_visit():
+    cities = user_repository.cities_to_visit()
+    return render_template("cities/have-not-been.html", all_cities=cities)
 
 
 @cities_blueprint.route("/cities/<id>/edit", methods=['GET'])
