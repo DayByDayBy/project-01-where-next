@@ -1,5 +1,5 @@
 from db.run_sql import run_sql
-
+import pdb
 from models.country import Country
 from models.city import City
 from models.user import User
@@ -11,6 +11,11 @@ def save(country):
     results = run_sql( sql, values)
     country.id = results[0]['id']
     return country
+
+def delete(id):
+    sql = "DELETE FROM countries WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
 
 
 def select_all():
@@ -42,6 +47,7 @@ def select(id):
 #         user = User(row['name'], row['langueages'], row['id'])
 #         users.append(user)
 #     return users
+
 
 
 def delete_all():

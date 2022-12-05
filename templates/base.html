@@ -19,10 +19,7 @@
         <a href="/">Main</a>
       </li>
       <li>
-        <a href="/users/index.html">Users</a>
-      </li>
-      <li>
-        <a href="/countries/index.html">Countries</a>
+        <a href="/countries">All Countries</a>
       </li>
       <li>
         <a href="/cities/have-not-been">Cities To Visit</a>
@@ -34,9 +31,13 @@
   </nav>
 <main>
   <section id="content">
-{% block content %}
-  
-{% endblock %}
+    
+      {% block content %}
+<br>
+        
+<br>
+      {% endblock %}
+
   </section>
 </main>
   <footer>
@@ -45,9 +46,7 @@
         <li>
           <a href="/">Main</a>
         </li>
-        <li>
-          <a href="/users/index.html">Users</a>
-        </li>
+
         <li>
           <a href="/countries/index.html">Countries</a>
         </li>

@@ -43,6 +43,10 @@ def users(city):
         users.append(user)
     return users
 
+def delete(id):
+    sql = "DELETE FROM cities where id = $s"
+    values = [id]
+    run_sql(sql, values)
 
 def delete_all():
     sql = "DELETE FROM cities"

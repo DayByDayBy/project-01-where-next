@@ -3,6 +3,19 @@
 {% block content %}
 
 
+<ul>
+    {% for city in cities %}
+    <li>
+    <p> <a href="/cities/{{ city.id }}"> {{ city.name }} </a></p>
+    <p>"<i>{{visit.review}}</i>"</p>
+      <p>
+        <form action="/cities/{{ city.id }}/delete" method="POST">
+          <input class="btn btn--danger" type="submit" value="delete" />
+        </form>
+      </p>
+    </li>
+    {% endfor %}
+  </ul>
 
 
 

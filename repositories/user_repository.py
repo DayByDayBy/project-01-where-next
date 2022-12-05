@@ -59,6 +59,10 @@ def cities_to_visit():
 
     return wishlist
 
+def delete(id):
+    sql = "DELETE FROM users where id = $s"
+    values = [id]
+    run_sql(sql, values)
 
 def delete_all():
     sql = "DELETE FROM users"

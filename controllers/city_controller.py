@@ -67,4 +67,4 @@ def update_city(id):
 @cities_blueprint.route("/cities/<id>/delete", methods=['POST'])
 def delete_city(id):
     city_repository.delete(id)
-    return redirect('/index')
+    return redirect('cities/index')

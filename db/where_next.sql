@@ -6,7 +6,6 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
   language VARCHAR(255)
-  -- languages VARCHAR(255)
 );
 
 CREATE TABLE countries (

@@ -4,7 +4,18 @@
 
 
 
-
+<ul>
+    {% for country in all_countries %}
+<li>
+    <a href="/countries/{{ country.id }}"> {{ country.name }} </a>
+    <p>
+        <form action="/countries/delete/{{ country.id }}" method="POST">
+          <input class="btn btn--danger" type="submit" value="delete" />
+        </form>
+      </p>
+</li>
+    {% endfor %}
+</ul>
 
 
     
