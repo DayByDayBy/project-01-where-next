@@ -9,7 +9,7 @@ from repositories import city_repository
 def save(user):
     sql = "INSERT INTO users( name ) VALUES ( %s ) RETURNING id"
     values = [user.name]
-    results = run_sql( sql, values )
+    results = run_sql(sql, values )
     user.id = results[0]['id']
     return user
 
@@ -60,7 +60,7 @@ def cities_to_visit():
     return wishlist
 
 def delete(id):
-    sql = "DELETE FROM users where id = $s"
+    sql = "DELETE FROM users where id = %s"
     values = [id]
     run_sql(sql, values)
 
