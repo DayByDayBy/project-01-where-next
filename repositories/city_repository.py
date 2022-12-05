@@ -6,8 +6,8 @@ from models.user import User
 from repositories import user_repository 
 
 def save(city):
-    sql = "INSERT INTO cities(name, country_id, visited ) VALUES ( %s, %s ) RETURNING id"
-    values = [city.name, city.country_id, city.visited]
+    sql = "INSERT INTO cities(name, country, visited ) VALUES ( %s, %s, %s ) RETURNING id"
+    values = [city.name, city.country.id, city.visited]
     results = run_sql( sql, values)
     city.id = results[0]['id']
     return city
@@ -19,7 +19,7 @@ def select_all():
     sql = "SELECT * FROM cities"
     results = run_sql(sql)
     for row in results:
-        city = City(row['name'], row['country_id'], row['visited'], row['id'])
+        city = City(row['name'], row['country'], row['visited'], row['id'])
         cities.append(city)
     return cities
 
@@ -29,7 +29,7 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
     if result is not None:
-        city = City(result['name'], result['country_id'], result['visited'], result['id'])
+        city = City(result['name'], result['country'], result['visited'], result['id'])
     return city
 
 def users(city):

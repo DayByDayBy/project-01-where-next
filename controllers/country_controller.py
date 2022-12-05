@@ -12,10 +12,10 @@ def all_countries():
     countries = country_repository.select_all()
     return render_template("countries/index.html", all_countries = countries)
 
-@countries_blueprint.route("/countries/add", methods=['GET'])
-def add_country():
-    countries = country_repository.select_all()
-    return render_template("countries/add.html", all_countries = countries)
+# @countries_blueprint.route("/countries/add", methods=['GET'])
+# def add_country():
+#     countries = country_repository.select_all()
+#     return render_template("countries/add.html", all_countries = countries)
 
 @countries_blueprint.route("/countries",  methods=['POST'])
 def add_country():

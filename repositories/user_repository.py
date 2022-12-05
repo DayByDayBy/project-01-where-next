@@ -30,7 +30,7 @@ def select(id):
     results = run_sql(sql, values)
     if results:
         result = results[0]
-        user = User(result['name'], result['languages'], result['id'] )
+        user = User(result['name'], result['language'], result['id'] )
     return user
 
 
@@ -41,7 +41,7 @@ def cities_visited(user):
     values = [True]
     results = run_sql(sql, values)
     for row in results:
-        cities_visited = City(row['name'], row['languages'], row['country_id'], row['id'])
+        cities_visited = City(row['name'], row['language'], row['country_id'], row['id'])
         ticklist.append(cities_visited)
 
     return ticklist
@@ -54,12 +54,10 @@ def cities_to_visit(user):
     values = [False]
     results = run_sql(sql, values)
     for row in results:
-        cities_visited = City(row['name'], row['languages'], row['country_id'], row['id'])
+        cities_visited = City(row['name'], row['language'], row['country_id'], row['id'])
         wishlist.append(cities_visited)
 
     return wishlist
-
-
 
 
 def delete_all():

@@ -22,9 +22,8 @@ def add_user():
 @users_blueprint.route("/users",  methods=['POST'])
 def create_user():
     name    = request.form['name']
-    user_id  = user_repository.select(request.form['user_id'])
-    visited   = request.form['visited']
-    user = User(name)
+    language   = request.form['language']
+    user = User(name, language)
     user_repository.save(user)
     return redirect('/index')
 
