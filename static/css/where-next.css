@@ -4,4 +4,8 @@ main{
 }
 
 
-
+blockquote {
+    width: 40%;
+    padding: 1rem;
+    margin: 1rem;
+  }

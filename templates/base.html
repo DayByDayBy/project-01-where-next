@@ -9,7 +9,7 @@
 <header>
     <h1>
       <div id="user-welcome">
-            WHERE NEXT, {{ user1 }}?
+            WHERE NEXT, {{ user.name }}?
         </div>
     </h1>
 </header>
@@ -30,12 +30,33 @@
     </ul>
   </nav>
 <main>
-  <section id="content">
-    
+ 
+  <section id="ticklist">
+    <p>
+
+      <ul>
+          {% for city in ticklist %}
+              <li>{{ city.visited }}</li>
+          {% endfor %}
+      </ul>
+    </p>
+  </section>
+      <br>
+
+  <section id="wishlist">
+   <p>
+      <ul>
+          {% for city in wishlist %}
+              <li>{{ city.visited }}</li>
+          {% endfor %}
+      </ul>
+    </p> 
+  </section>
+
+
       {% block content %}
-<br>
         
-<br>
+      <br>
       {% endblock %}
 
   </section>

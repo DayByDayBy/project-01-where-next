@@ -11,6 +11,13 @@ app.register_blueprint(cities_blueprint)
 app.register_blueprint(countries_blueprint)
 app.register_blueprint(users_blueprint)
 
+@app.route('/base')
+def base_bits():
+    ticklist = user_repository.cities_visited()
+    wishlist = user_repository.cities_to_visit()
+    user = users_blueprint.user1
+    return render_template('base.html', ticklist=ticklist, wishlist=wishlist)
+
 @app.route('/')
 def home():
     user = user_repository.select_all()[0]
