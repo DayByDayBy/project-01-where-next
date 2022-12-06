@@ -33,15 +33,23 @@ def delete_country(product_id):
 
 @countries_blueprint.route("/countries/add",  methods=['POST'])
 def add_country():
+    name    = request.form['name']
+    currency    = request.form['currency']
+    continent    = request.form['continent']
+    country = Country(name, currency, continent)
+    country_repository.save(country)
+    return redirect('/')
+
+
+@countries_blueprint.route("/countries/add", methods=['GET'])
+def add_country_form():
     ticklist = user_repository.cities_visited()
     wishlist = user_repository.cities_to_visit()
     user = user_repository.select_all()[0]
-    name    = request.form['name']
-    country_id  = country_repository.select(request.form['country_id'])
-    visited   = request.form['visited']
-    country = country(name, country_id, visited)
-    country_repository.save(country)
-    return redirect('/index', ticklist=ticklist, wishlist=wishlist, user=user)
+    return render_template('countries/add.html', ticklist=ticklist, wishlist=wishlist, user=user)
+
+
+
 
 @countries_blueprint.route("/countries/<id>", methods=['GET'])
 def show_country(id):
@@ -49,7 +57,7 @@ def show_country(id):
     ticklist = user_repository.cities_visited()
     wishlist = user_repository.cities_to_visit()
     user = user_repository.select_all()[0]
-    return render_template('countries/<id>', country=country, ticklist=ticklist, wishlist=wishlist, user=user)
+    return render_template('/countries/show.html', country=country, ticklist=ticklist, wishlist=wishlist, user=user)
  
 @countries_blueprint.route('/countries/have-been')
 def visited_countries():
@@ -89,7 +97,7 @@ def update_country(id):
     country = country(name, country_id, visited, id)
     print(country.name)
     country_repository.update(country)
-    return redirect('/index', ticklist=ticklist, wishlist=wishlist, user=user)
+    return redirect('/index')
 
 
 

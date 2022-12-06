@@ -3,21 +3,28 @@
 {% block content %}
 
 
-<h1> Add a destination: </h1>
+<h1> Add a City: </h1>
 <p>
 
 <form id="add-city" action="/cities/add" method="post">
     <label for="city">City:</label>
     <input type="text" name="name" id="name">
+    
+    
     <label for="country">Country:</label>
-    <input type="text" name="country" id="country">
+    <select name="country" id="country">
+        {% for country in all_countries %}
+        <option value="{{country.id}}">
+            {{ country.name }}
+        </option>
+            
+        {% endfor %}
+    </select>
+
+
     <label for="visited">Have You Been?</label>
     <input type="checkbox" name ="visited" id="visited">
     <input class="btn btn--action" type='submit' value="Add">
 </form>
 
-
-
-
-    
-{% endblock %}
+{% endblock content %}

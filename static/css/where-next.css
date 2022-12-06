@@ -1,18 +1,28 @@
 html{
     font-family: Inter, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background-color: #A9D3FF;
+    justify-content: space-between;
+    gap: 3rem;
 }
+
+#user-welcome{
+    padding: 0 0 0 1rem;
+}
+
+
 
 header{
     background-color: #93acb5;
     display:flex;
     justify-content: space-between;
+    border-radius: 10px;
 }
 
 nav{
     display:flex;
     justify-content: space-around;
     padding: 16px;
+    
 }
 
 
@@ -35,6 +45,9 @@ header > h1{
 
 footer{
     background-color:  #93acb5;
+    border-radius: 10px;
+    align-self: flex-end;
+
 }
 
 main{
@@ -44,10 +57,11 @@ main{
     height: 70%;
     justify-content: center;
     padding: 24px 12px 24px 12px;
+    border-radius: 10px;
 }
 
 #middle {
-    background:linear-gradient(0deg, rgba(206, 218, 223, 0.99), rgba(206, 218, 223, 0.9)), url('/static/images/world_winkel.gif');
+    background:linear-gradient(0deg, rgba(206, 218, 223, 0.89), rgba(206, 218, 223, 0.9)), url('/static/images/world_winkel.gif');
     background-size: cover;
     background-position: center;
     /* background-color: #cedadf; */
@@ -55,7 +69,8 @@ main{
     flex-wrap: wrap;
     padding: 5px;
     width: 45%;
-    height: 90%;
+    height: 95%;
+    border-radius: 40px;
    
 }
 
@@ -72,6 +87,8 @@ section#ticklist{
     justify-content: center;
     text-align: center;
     height: 90%;
+    border-radius: 40px;
+
     
 }
 
@@ -84,6 +101,7 @@ section#wishlist{
     justify-content: center;
     text-align: center;
     height: 90%;
+    border-radius: 40px;
 }
 
 blockquote {
@@ -93,6 +111,16 @@ blockquote {
   }
 
   form#add-city{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-items: space-between;
+    align-self:center;
+
+  }
+
+
+  form#add-country{
     display: flex;
     flex-direction: column;
     gap: 1rem;

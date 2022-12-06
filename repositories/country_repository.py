@@ -34,7 +34,7 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
     if result is not None:
-        country = country(result['name'], result['currency'], result['continent'], result['id'])
+        country = Country(result['name'], result['currency'], result['continent'], result['id'])
     return country
 
 # def users(country):

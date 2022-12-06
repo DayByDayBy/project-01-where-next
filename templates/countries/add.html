@@ -3,6 +3,21 @@
 {% block content %}
 
 
+<h1> Add a Country: </h1>
+<p>
+
+<form id="add-country" action="/countries/add" method="post">
+    <label for="country">Country:</label>
+    <input type="text" name="name" id="name">
+
+    <label for="currency">Currency:</label>
+    <input type="text" name="currency" id="currency">
+    <label for="continent">Continent:</label>
+    <input type="text" name="continent" id="continent">
+
+
+    <input class="btn btn--action" type='submit' value="Add">
+</form>
 
 
 

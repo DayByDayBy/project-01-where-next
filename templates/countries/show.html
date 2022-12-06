@@ -5,7 +5,20 @@
 
 
 
+<h1><p>  {{country.name}} </p></h1>
+<p> 
+    {{country.currency}}
 
-
+    {{country.continent}}
+<br>
+<br>
+    <form action="/countries/{{ country.id }}/delete" method="POST">
+        <input class="btn btn--danger" type="submit" value="DELETE" />
+    </form>
     
+    <form action="/countries/{{ country.id }}/add" method="POST">
+        <input class="btn btn--danger" type="submit" value="ADD" />
+    </form>
+
+</p>
 {% endblock %}

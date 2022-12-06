@@ -40,7 +40,7 @@ def cities_visited():
     sql = "SELECT * FROM cities WHERE visited = true"
     results = run_sql(sql)
     for row in results:
-        cities_visited = City(row['name'], row['country'], row['id'])
+        cities_visited = City(row['name'], row['country'], row['visited'], row['id'])
         ticklist.append(cities_visited)
 
     return ticklist
@@ -52,7 +52,7 @@ def cities_to_visit():
     sql = "SELECT * FROM cities WHERE visited = false"
     results = run_sql(sql)
     for row in results:
-        cities_to_visit = City(row['name'], row['country'], row['id'])
+        cities_to_visit = City(row['name'], row['country'], row['visited'], row['id'])
         wishlist.append(cities_to_visit)
 
     return wishlist

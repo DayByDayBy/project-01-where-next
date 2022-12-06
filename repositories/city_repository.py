@@ -27,8 +27,9 @@ def select(id):
     city = None
     sql = "SELECT * FROM cities WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)[0]
-    if result is not None:
+    results = run_sql(sql, values)
+    if len(results) > 0:
+        result = results[0]
         city = City(result['name'], result['country'], result['visited'], result['id'])
     return city
 

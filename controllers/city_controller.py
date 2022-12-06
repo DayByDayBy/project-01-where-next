@@ -23,7 +23,18 @@ def add_city():
     wishlist = user_repository.cities_to_visit()
     user = user_repository.select_all()[0]
     cities = city_repository.select_all()
-    return render_template("cities/add.html", all_cities = cities, ticklist=ticklist, wishlist=wishlist, user=user)
+    countries = country_repository.select_all()
+    return render_template("cities/add.html", all_countries=countries, all_cities = cities, ticklist=ticklist, wishlist=wishlist, user=user)
+
+
+@cities_blueprint.route("/cities/add", methods=['GET'])
+def add_city_form():
+    ticklist = user_repository.cities_visited()
+    wishlist = user_repository.cities_to_visit()
+    user = user_repository.select_all()[0]
+    return render_template('cities/add.html', ticklist=ticklist, wishlist=wishlist, user=user)
+
+
 
 @cities_blueprint.route("/cities",  methods=['POST'])
 def create_city():
@@ -35,7 +46,7 @@ def create_city():
     visited   = request.form['visited']
     city = City(name, country, visited)
     city_repository.save(city)
-    return redirect('/index', ticklist=ticklist, wishlist=wishlist, user=user)
+    return redirect('/')
 
 @cities_blueprint.route("/cities/<id>", methods=['GET'])
 def show_city(id):
@@ -44,7 +55,6 @@ def show_city(id):
     user = user_repository.select_all()[0]
     city = city_repository.select(id)
     return render_template('cities/show.html', city = city, ticklist=ticklist, wishlist=wishlist, user=user)
-
 
 @cities_blueprint.route('/cities/have-been')
 def visited():
@@ -72,7 +82,6 @@ def edit_city(id):
     countries = country_repository.select_all()
     return render_template('cities/edit.html', city=city, countries=countries, ticklist=ticklist, wishlist=wishlist, user=user)
 
-#not sure about this next one....
 
 @cities_blueprint.route("/cities/<id>", methods=['POST'])
 def update_city(id):
@@ -84,8 +93,8 @@ def update_city(id):
     visited   = request.form['visited']
     city = City(name, country, visited, id)
     print(city.name)
-    city_repository.update(city)
-    return redirect('/index', ticklist=ticklist, wishlist=wishlist, user=user)
+    city_repository.save(city)
+    return redirect('/')
 
 
 @cities_blueprint.route("/cities/<id>/delete", methods=['POST'])
@@ -94,4 +103,4 @@ def delete_city(id):
     wishlist = user_repository.cities_to_visit()
     user = user_repository.select_all()[0]
     city_repository.delete(id)
-    return redirect('cities/index', ticklist=ticklist, wishlist=wishlist, user=user)
+    return redirect('/cities/have-been')
