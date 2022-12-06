@@ -1,11 +1,93 @@
+html{
+    font-family: Inter, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: #A9D3FF;
+}
 
-main{
+header{
+    background-color: #93acb5;
     display:flex;
+    justify-content: space-between;
+}
+
+nav{
+    display:flex;
+    justify-content: space-around;
+    padding: 16px;
 }
 
 
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+li{
+    list-style: none;
+    padding: 0px;
+    margin: 0px
+}
+
+header > h1{
+    background-color:  #93acb5;
+    text-shadow: 4px 2px #80969f;   
+}
+
+footer{
+    background-color:  #93acb5;
+}
+
+main{
+    display:flex;
+    gap: 32px;
+    background-color: #6c756b;
+    height: 70%;
+    justify-content: center;
+    padding: 24px 12px 24px 12px;
+}
+
+#middle {
+    background:linear-gradient(0deg, rgba(206, 218, 223, 0.99), rgba(206, 218, 223, 0.9)), url('/static/images/world_winkel.gif');
+    background-size: cover;
+    background-position: center;
+    /* background-color: #cedadf; */
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    width: 45%;
+    height: 90%;
+   
+}
+
+p#big-text{
+    font-weight: 800;
+}
+
+
+section#ticklist{
+    background-color:  #cedadf;
+    display: flex;
+    width: 280px;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    height: 90%;
+    
+}
+
+section#wishlist{
+    background-color:  #cedadf;
+    display: flex;
+    /* width: 25%; */
+    flex: 1;
+    width: 280px;
+    justify-content: center;
+    text-align: center;
+    height: 90%;
+}
+
 blockquote {
-    width: 40%;
-    padding: 1rem;
-    margin: 1rem;
+    padding: 3rem 0 0 0;
+    align-items: center;
+   
   }

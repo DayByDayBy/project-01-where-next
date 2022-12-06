@@ -3,6 +3,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/where-next.css') }}">
     <title>Where Next?</title>
 <body>
@@ -12,54 +15,49 @@
             WHERE NEXT, {{ user.name }}?
         </div>
     </h1>
+    <nav>
+      <ul>
+        <li>
+          <a href="/">Main</a>
+        </li>
+        <li>
+          <a href="/countries">All Countries</a>
+        </li>
+        <li>
+          <a href="/cities/have-not-been">Cities To Visit</a>
+        </li>
+        <li>
+          <a href="/cities/have-been">Visited Cities</a>
+        </li>
+      </ul>
+    </nav>
 </header>
-  <nav>
-    <ul>
-      <li>
-        <a href="/">Main</a>
-      </li>
-      <li>
-        <a href="/countries">All Countries</a>
-      </li>
-      <li>
-        <a href="/cities/have-not-been">Cities To Visit</a>
-      </li>
-      <li>
-        <a href="/cities/have-been">Visited Cities</a>
-      </li>
-    </ul>
-  </nav>
-<main>
+  
+<main class="main-wrapper">
  
   <section id="ticklist">
-    <p>
+      <p>
+        {% for city in ticklist %}
+          {{ city.name }}<br>
+        {% endfor %}
+      </p>
 
-      <ul>
-          {% for city in ticklist %}
-              <li>{{ city.visited }}</li>
-          {% endfor %}
-      </ul>
-    </p>
   </section>
-      <br>
+
+  <section id="middle">
+    {% block content %}
+        
+    {% endblock %}
+  </section>
 
   <section id="wishlist">
-   <p>
-      <ul>
+          <p>
           {% for city in wishlist %}
-              <li>{{ city.visited }}</li>
+          {{ city.name }}<br>
           {% endfor %}
-      </ul>
-    </p> 
+        </p>
   </section>
 
-
-      {% block content %}
-        
-      <br>
-      {% endblock %}
-
-  </section>
 </main>
   <footer>
     <nav>

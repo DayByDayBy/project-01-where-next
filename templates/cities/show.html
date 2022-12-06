@@ -3,9 +3,24 @@
 {% block content %}
 
 
+{% block content %}
+<h1> {{city.name}} </h1>
+<p> 
+    {{city.country}}
+    {{city.visited}}
+
+    <form action="/cities/{{ city.id }}/delete" method="POST">
+        <input class="btn btn--danger" type="submit" value="DELETE" />
+    </form>
+    
+    <form action="/cities/{{ city.id }}/add" method="POST">
+        <input class="btn btn--danger" type="submit" value="ADD" />
+    </form>
+
+</p>
+{% endblock %}
 
 
 
 
     
-{% endblock %}

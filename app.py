@@ -15,28 +15,36 @@ app.register_blueprint(users_blueprint)
 def base_bits():
     ticklist = user_repository.cities_visited()
     wishlist = user_repository.cities_to_visit()
-    user = users_blueprint.user1
-    return render_template('base.html', ticklist=ticklist, wishlist=wishlist)
+    user = user_repository.select_all()[0]
+    return render_template('base.html', ticklist=ticklist, wishlist=wishlist, user=user)
 
 @app.route('/')
 def home():
+    ticklist = user_repository.cities_visited()
+    wishlist = user_repository.cities_to_visit()
     user = user_repository.select_all()[0]
-    return render_template('index.html', user = user)
+    return render_template('index.html', ticklist=ticklist, wishlist=wishlist, user = user)
 
 @app.route('/users')
 def users():
+    ticklist = user_repository.cities_visited()
+    wishlist = user_repository.cities_to_visit()
     user = user_repository.select_all()[0]
-    return render_template('users/ndex.html', user = user)
+    return render_template('users/index.html', ticklist=ticklist, wishlist=wishlist, user = user)
 
 @app.route('/cities')
 def cities():
+    ticklist = user_repository.cities_visited()
+    wishlist = user_repository.cities_to_visit()
     user = user_repository.select_all()[0]
-    return render_template('cities/index.html', user = user)
+    return render_template('cities/index.html', ticklist=ticklist, wishlist=wishlist, user = user)
 
 @app.route('/countries')
 def countries():
+    ticklist = user_repository.cities_visited()
+    wishlist = user_repository.cities_to_visit()
     user = user_repository.select_all()[0]
-    return render_template('countries/index.html', user = user)
+    return render_template('countries/index.html', ticklist=ticklist, wishlist=wishlist, user=user)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -2,16 +2,20 @@
 
 {% block content %}
 
-
     <ul>
-    {% for city in cities %}
+        {% for city in ticklist %}
+            
         <li>
-
+            <p id="big-text"> 
+                <a href="/cities/{{ city.id }}"> {{ city.name }} </a>
+                    <form action="/cities/{{ city.id }}/delete" method="POST">
+                    <input class="btn btn--danger" type="submit" value="delete" />
+                    </form>
+            </p>
         </li>
-    {% endfor %}
+        {% endfor %}
+      </ul>
 
 
-    </ul>
 
-       
 {% endblock %}

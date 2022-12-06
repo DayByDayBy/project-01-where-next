@@ -37,9 +37,8 @@ def select(id):
 def cities_visited():
     ticklist = []
 
-    sql = "SELECT * FROM cities WHERE visited = %s"
-    values = [True]
-    results = run_sql(sql, values)
+    sql = "SELECT * FROM cities WHERE visited = true"
+    results = run_sql(sql)
     for row in results:
         cities_visited = City(row['name'], row['country'], row['id'])
         ticklist.append(cities_visited)
@@ -50,9 +49,8 @@ def cities_visited():
 def cities_to_visit():
     wishlist = []
 
-    sql = "SELECT * FROM cities WHERE visited = %s"
-    values = [False]
-    results = run_sql(sql, values)
+    sql = "SELECT * FROM cities WHERE visited = false"
+    results = run_sql(sql)
     for row in results:
         cities_to_visit = City(row['name'], row['country'], row['id'])
         wishlist.append(cities_to_visit)
