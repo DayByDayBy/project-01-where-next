@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
-{% block content %}
-
+{% block edit %}
 
 <ul>
     {% for city in cities %}
@@ -9,15 +8,14 @@
     <p> <a href="/cities/{{ city.id }}"> {{ city.name }} </a></p>
       <p>
         <form action="/cities/{{ city.id }}/delete" method="POST">
-          <input id="button" class="btn btn--danger" type="submit" value="delete" />
+            <input class="btn btn--danger" type="submit" value="delete" />
+            <label for="visited">Have You Been?</label>
+            <input type="checkbox" name ="visited" id="visited">
+            <input class="btn btn--action" type='submit' value="Add">
         </form>
       </p>
     </li>
     {% endfor %}
   </ul>
-
-
-
-
     
 {% endblock %}

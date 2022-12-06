@@ -3,10 +3,11 @@
 
 {% block content %}
 
+<section id="show">
 <h1> {{city.name}} </h1>
 <p> 
     {{city.country}}
-    
+
     {{city.visited}}
 
     <form action="/cities/{{ city.id }}/delete" method="POST">
@@ -18,6 +19,7 @@
     </form>
 
 </p>
+</section>
 {% endblock %}
 
 

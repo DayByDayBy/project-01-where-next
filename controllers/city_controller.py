@@ -43,7 +43,7 @@ def create_city():
     user = user_repository.select_all()[0]
     name    = request.form['name']
     country  = country_repository.select(request.form['country'])
-    visited   = request.form['visited']
+    visited   = request.form['visited']     ###########   #####   ######### needs to be flase when not ticked -  False or visited form #########
     city = City(name, country, visited)
     city_repository.save(city)
     return redirect('/')

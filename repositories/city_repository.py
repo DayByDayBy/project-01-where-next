@@ -45,7 +45,7 @@ def users(city):
     return users
 
 def delete(id):
-    sql = "DELETE FROM cities where id = $s"
+    sql = "DELETE FROM cities where id = %s"
     values = [id]
     run_sql(sql, values)
 

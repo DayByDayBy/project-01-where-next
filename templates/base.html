@@ -17,23 +17,17 @@
     </h1>
     <nav>
       <ul>
-        <li>
-          <a href="/">Main</a>
+        <li class="button">
+          <a href="/cities/edit">Check off a City</a>
         </li>
-        <li>
-          <a href="/countries">All Countries</a>
-        </li>
-        <li>
-          <a href="/cities/have-not-been">Cities To Visit</a>
-        </li>
-        <li>
-          <a href="/cities/have-been">Visited Cities</a>
-        </li>
-        <li>
+        <li class="button">
           <a href="/countries/add">Add a Country</a>
         </li>
-        <li>
+        <li class="button">
           <a href="/cities/add">Add a City</a>
+        </li>
+        <li class="button">
+          <a href="/">Main </a>
         </li>
       </ul>
     </nav>
@@ -41,12 +35,13 @@
   
 <main class="main-wrapper">
  
-  <section id="ticklist">
-      <p>
-        {% for city in ticklist %}
-          {{ city.name }}<br>
-        {% endfor %}
-      </p>
+  <section id="ticklist"><br><br>
+
+          <p>
+            {% for city in ticklist %}
+              {{ city.name }}<br>
+            {% endfor %}
+         </p>
 
   </section>
 
@@ -57,35 +52,39 @@
   </section>
 
   <section id="wishlist">
+
           <p>
-          {% for city in wishlist %}
-          {{ city.name }}<br>
-          {% endfor %}
-        </p>
+            {% for city in wishlist %}
+            {{ city.name }}<br>
+            {% endfor %}
+           </p>
   </section>
 
 </main>
   <footer>
     <nav>
       <ul>
-        <li>
+        <li class="button">
           <a href="/">Main</a>
         </li>
 
-        <li>
+        <li class="button">
           <a href="/countries">All Countries</a>
         </li>
-        <li>
+        <li class="button">
           <a href="/cities/have-not-been">Cities To Visit</a>
         </li>
-        <li>
+        <li class="button">
           <a href="/cities/have-been">Visited Cities</a>
         </li>
-        <li>
+        <li class="button">
           <a href="/countries/add">Add Country</a>
         </li>
-        <li>
+        <li class="button">
           <a href="/cities/add">Add City</a>
+        </li>
+        <li class="button">
+          <a href="/cities/edit">Check off a City</a>
         </li>
       </ul>
     </nav>
