@@ -146,21 +146,32 @@ blockquote {
    
   }
 
-  form#add-city{
+  #add-city{
     display: flex;
     flex-direction: column;
     gap: 1rem;
     justify-items: space-between;
+    justify-self: center;
     align-self:center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-  }
+}
 
-
-  form#add-country{
+  #add-country{
     display: flex;
     flex-direction: column;
     gap: 1rem;
     justify-items: space-between;
+    justify-self: center;
     align-self:center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+
 
   }
