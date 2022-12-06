@@ -91,3 +91,12 @@ blockquote {
     align-items: center;
    
   }
+
+  form#add-city{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-items: space-between;
+    align-self:center;
+
+  }
