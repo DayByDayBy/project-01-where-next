@@ -1,6 +1,6 @@
 html{
     font-family: Inter, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    background-image: linear-gradient(to top left, #A9D3FF, #6fa3db);
+    background: linear-gradient(to top left, #A9D3FF, #6fa3db);
     justify-content: space-between;
     gap: 3rem;
 }
@@ -108,7 +108,8 @@ li{
 main{
     display:flex;
     gap: 32px;
-    background-color: #6c756b;
+    /* background-color: #6c756b; */
+    background-image: linear-gradient(to top, #8ab4e16e, #6c756b);
     height: 70%;
     justify-content: center;
     padding: 36px 24px 24px 24px;
