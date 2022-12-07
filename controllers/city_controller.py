@@ -27,14 +27,6 @@ def add_city():
     return render_template("cities/add.html", all_countries=countries, all_cities = cities, ticklist=ticklist, wishlist=wishlist, user=user)
 
 
-# @cities_blueprint.route("/cities/add", methods=['GET'])
-# def add_city_form():
-#     ticklist = user_repository.cities_visited()
-#     wishlist = user_repository.cities_to_visit()
-#     user = user_repository.select_all()[0]
-#     return render_template('cities/add.html', ticklist=ticklist, wishlist=wishlist, user=user)
-
-
 
 @cities_blueprint.route("/cities/add",  methods=['POST'])
 def create_city():
