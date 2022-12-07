@@ -54,6 +54,29 @@ li.button:hover {
         border-radius: 8px;
 }
 
+div#edit-page{
+    display:flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size:small;
+    justify-content: space-evenly;
+}
+
+div.city-check {
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+}
+
+.city-check p {
+    text-align: center;
+}
+
+.city-check form {
+    display: flex;
+    flex-direction: column;
+}
+
 footer{
     background-color:#93acb5;
     border-radius: 50px;

@@ -27,23 +27,23 @@ def add_city():
     return render_template("cities/add.html", all_countries=countries, all_cities = cities, ticklist=ticklist, wishlist=wishlist, user=user)
 
 
-@cities_blueprint.route("/cities/add", methods=['GET'])
-def add_city_form():
-    ticklist = user_repository.cities_visited()
-    wishlist = user_repository.cities_to_visit()
-    user = user_repository.select_all()[0]
-    return render_template('cities/add.html', ticklist=ticklist, wishlist=wishlist, user=user)
+# @cities_blueprint.route("/cities/add", methods=['GET'])
+# def add_city_form():
+#     ticklist = user_repository.cities_visited()
+#     wishlist = user_repository.cities_to_visit()
+#     user = user_repository.select_all()[0]
+#     return render_template('cities/add.html', ticklist=ticklist, wishlist=wishlist, user=user)
 
 
 
-@cities_blueprint.route("/cities",  methods=['POST'])
+@cities_blueprint.route("/cities/add",  methods=['POST'])
 def create_city():
     ticklist = user_repository.cities_visited()
     wishlist = user_repository.cities_to_visit()
     user = user_repository.select_all()[0]
     name    = request.form['name']
     country  = country_repository.select(request.form['country'])
-    visited   = request.form['visited']     ###########   #####   ######### needs to be flase when not ticked -  False or visited form #########
+    visited = "visited" in request.form
     city = City(name, country, visited)
     city_repository.save(city)
     return redirect('/')
@@ -55,6 +55,8 @@ def show_city(id):
     user = user_repository.select_all()[0]
     city = city_repository.select(id)
     return render_template('cities/show.html', city = city, ticklist=ticklist, wishlist=wishlist, user=user)
+
+
 
 @cities_blueprint.route('/cities/have-been')
 def visited():
@@ -73,27 +75,31 @@ def to_visit():
     return render_template("cities/have-not-been.html", all_cities=cities, ticklist=ticklist, wishlist=wishlist, user=user)
 
 
-@cities_blueprint.route("/cities/<id>/edit", methods=['GET'])
-def edit_city(id):
+# @cities_blueprint.route("/cities/<id>/edit", methods=['POST'])
+# def edit_city(id):
+#     ticklist = user_repository.cities_visited()
+#     wishlist = user_repository.cities_to_visit()
+#     user = user_repository.select_all()[0]
+#     city = city_repository.select(id)
+#     countries = country_repository.select_all()
+#     return render_template('cities/edit.html', city=city, countries=countries, ticklist=ticklist, wishlist=wishlist, user=user)
+
+
+@cities_blueprint.route("/cities/edit", methods=['GET'])
+def update_cities_page():
     ticklist = user_repository.cities_visited()
     wishlist = user_repository.cities_to_visit()
     user = user_repository.select_all()[0]
-    city = city_repository.select(id)
-    countries = country_repository.select_all()
-    return render_template('cities/edit.html', city=city, countries=countries, ticklist=ticklist, wishlist=wishlist, user=user)
+    cities = user_repository.cities_to_visit()
+    return render_template('cities/edit.html', cities = cities, ticklist=ticklist, wishlist=wishlist, user=user)
 
-
-@cities_blueprint.route("/cities/<id>", methods=['POST'])
+@cities_blueprint.route("/cities/<id>/edit", methods=['POST'])
 def update_city(id):
-    ticklist = user_repository.cities_visited()
-    wishlist = user_repository.cities_to_visit()
-    user = user_repository.select_all()[0]
-    name    = request.form['name']
-    country = country_repository.select(request.form['country'])
-    visited   = request.form['visited']
-    city = City(name, country, visited, id)
+    visited   = "visited" in request.form
+    city = city_repository.select(id)
+    city.visited = visited 
     print(city.name)
-    city_repository.save(city)
+    city_repository.update(city)
     return redirect('/')
 
 

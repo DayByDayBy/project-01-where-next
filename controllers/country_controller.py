@@ -49,8 +49,6 @@ def add_country_form():
     return render_template('countries/add.html', ticklist=ticklist, wishlist=wishlist, user=user)
 
 
-
-
 @countries_blueprint.route("/countries/<id>", methods=['GET'])
 def show_country(id):
     country = country_repository.select(id)
@@ -78,7 +76,6 @@ def countries_to_visit():
 
 @countries_blueprint.route("/countries/<id>/edit", methods=['GET'])
 def edit_country(id):
-    ticklist = user_repository.cities_visited()
     wishlist = user_repository.cities_to_visit()
     user = user_repository.select_all()[0]
     country = country_repository.select(id)
